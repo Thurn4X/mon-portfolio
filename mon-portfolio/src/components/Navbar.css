@@ -1,0 +1,54 @@
+/* Navbar.css */
+.navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: transparent;
+  padding: 0.5rem 0;
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.nav-button {
+  position: relative;
+  border: none;
+  outline: none; /* This removes the ugly square */
+  background: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Remove any focus styles completely */
+.nav-button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Hover effect */
+.nav-button:hover {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+}
+
+/* Active button style */
+.nav-button.active {
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* Active underline */
+.active-underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+}
