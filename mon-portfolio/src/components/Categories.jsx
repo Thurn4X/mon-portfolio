@@ -2,8 +2,8 @@
 export const categories = [
     {
       name: "Landing",
-      stage1: { position: [2.17, -0.5, 5.2], target: [0.14, 0.4, 0] },
-      stage2: { position: [2.17, -0.5, 5.2], target: [0.14, 0.4, 0] },
+      stage1: { position: [0.5, 2, 10], target: [0.14, 0.4, 0] },
+      stage2: { position: [0.5, 2, 10], target: [0.14, 0.4, 0] },
     },
     {
       name: "About",

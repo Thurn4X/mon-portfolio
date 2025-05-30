@@ -1,4 +1,3 @@
-// src/components/NameOverlay.jsx
 import React, { forwardRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 
@@ -24,14 +23,16 @@ const NameOverlay = forwardRef(({ visible }, ref) => {
       ref={ref}
       style={{
         position: 'absolute',
-        top: '33%',     // dans le tiers supérieur
+        top: '33%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
         color: 'white',
         fontSize: '5rem',
         fontWeight: 'bold',
         pointerEvents: 'none',
-        opacity: 0,  // démarre transparent
+        opacity: 0,
+        textShadow: '0 0 8px rgba(255, 255, 255, 0.8)', // Same as active nav item
+        transition: 'text-shadow 0.3s ease', // Smooth glow transition
       }}
     >
       WILLIAM MASIH

@@ -6,18 +6,22 @@ import Model from './Model';
 import Navbar from './Navbar';
 import CameraController from './CameraController';
 import NameOverlay from './NameOverlay';
+import TvScreenOverlay from './TvScreenOverlay';
+import { categories } from './Categories';
 
 const Landing = () => {
   const [activeCategory, setActiveCategory] = useState("Landing");
   const [camera, setCamera] = useState(null);
   const [landingTransitionComplete, setLandingTransitionComplete] = useState(false);
+  const [tvOverlayVisible, setTvOverlayVisible] = useState(false);
   const controlsRef = useRef(null);
   const nameOverlayRef = useRef(null);
 
-  // Lorsque l'on quitte Landing, on réinitialise landingTransitionComplete.
+  // Lorsqu'on change de catégorie, si ce n'est pas Landing, on cache immédiatement le NameOverlay
   useEffect(() => {
     if (activeCategory !== "Landing") {
       setLandingTransitionComplete(false);
+      setTvOverlayVisible(false);
     }
   }, [activeCategory]);
 
@@ -35,17 +39,30 @@ const Landing = () => {
           onTransitionComplete={() => {
             if (activeCategory === "Landing") {
               setLandingTransitionComplete(true);
+            } else {
+              setTvOverlayVisible(true);
             }
           }}
         />
         <Model />
         <OrbitControls ref={controlsRef} />
       </Canvas>
-      
+
       <Navbar activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
-      
+
+      {/* Afficher NameOverlay uniquement pour Landing */}
       {activeCategory === "Landing" && (
         <NameOverlay ref={nameOverlayRef} visible={landingTransitionComplete} />
+      )}
+
+      {/* Afficher l'overlay TV avec le texte associé pour les autres catégories */}
+      {activeCategory !== "Landing" && tvOverlayVisible && (
+        <TvScreenOverlay
+          text={
+            (categories.find(cat => cat.name === activeCategory)?.text) ||
+            "Lorem ipsum dolor sit amet..."
+          }
+        />
       )}
     </div>
   );
