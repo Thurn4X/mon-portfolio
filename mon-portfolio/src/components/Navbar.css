@@ -5,7 +5,7 @@
   width: 100%;
   background-color: transparent;
   padding: 0.5rem 0;
-  z-index: 2000;
+  z-index: 2;
   display: flex;
   justify-content: center;
   gap: 1rem;
